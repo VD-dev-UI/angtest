@@ -1,21 +1,43 @@
+<div class="container jumbotron">
+  <div class="row">
+    <div class="col-md-12">
+  <div class="well">
+     
+        <h3>Block Chain  Details</h3>
+        <div class="col-md-6">
+    Enter hash ID : <input type="text" #guser></div><br>
+    <div class="col-md-6">
+    <button class="btn btn-primary btn-sm"(click)="getDetails(guser.value)">GetDetails</button>
+  </div>
+  </div>
+  </div>
+  <br><br><br><br><br><br> <div class="col-md-6">
+    <img class="img-thumbnail" *ngIf="user.avatar_url" [src]="user.avatar_url" width="304" height="236" />
+    </div>
+  <div class="col-md-6">
+      <div *ngIf ="user;else nouser" class="panel panel-default">
+          <div class="panel-heading">Panel Heading</div>
+          <div class="panel-body"> 
+              <p>LoginID:{{user.login}}</p>
+            <p>ID:{{user.id}}</p>
+            <p>Name:{{user.name}}</p>
+            <p>Company :{{user.company}}</p>
+            <p>Email :{{user.email}}</p>
+            <p>Location: {{user.location}}</p>
+            <p>Url: {{user.url}}</p>
+            <p>Repo Url:{{user.repos_url}}</p>
+            <p>Follwers:{{user.followers}}</p>
+            <p>Created At:{{user.created_at}}</p>
+            </div>
+        </div>
+   
+    
+    </div>
+  </div>
+  </div>
 
-<h3>Block Chain  Details</h3>
-Enter hash ID : <input type="text" #guser>
-<button (click)="getDetails(guser.value)">GetDetails</button>
 
-<div *ngIf ="user;else nouser">
-    <h3>LoginID:{{user.login}}</h3>
-  <h3>ID:{{user.id}}</h3>
-  <h3>Name:{{user.name}}</h3>
-  <h3>Company :{{user.company}}</h3>
-  <h3>Email :{{user.email}}</h3>
-  <h3>Location: {{user.location}}</h3>
-  <h3>Url: {{user.url}}</h3>
-  <h3>Repo Url:{{user.repos_url}}</h3>
-  <h3>Follwers:{{user.followers}}</h3>
-  <h3>Created At:{{user.created_at}}</h3>
-  <img *ngIf="user.avatar_url" [src]="user.avatar_url" />
-</div><br><br>
-<div>&nbsp;</div>
+<br><br>
+
 <ng-template #nouser>{{errormsg}}</ng-template>
 <div *ngIf="!user">{{errormsg}}</div>
